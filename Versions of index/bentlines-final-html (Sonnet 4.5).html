@@ -1,0 +1,950 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bentlines - Engineering & Welding Contractors</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --black: #000000;
+            --red: #d32f2f;
+            --dark-gray: #1d1d1f;
+            --light-gray: #f5f5f7;
+            --mid-gray: #86868b;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            -webkit-font-smoothing: antialiased;
+            color: var(--dark-gray);
+            background: #fff;
+        }
+
+        /* Navigation - Apple Style */
+        nav {
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: saturate(180%) blur(20px);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .nav-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+            height: 48px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            transition: opacity 0.3s;
+        }
+
+        .logo-image {
+            height: 40px;
+            width: auto;
+            display: block;
+            filter: brightness(0) invert(1);
+            -webkit-filter: brightness(0) invert(1);
+        }
+
+        .logo:hover {
+            opacity: 0.85;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #f5f5f7;
+            text-decoration: none;
+            font-size: 0.75rem;
+            font-weight: 400;
+            transition: opacity 0.3s;
+            letter-spacing: 0.3px;
+        }
+
+        .nav-links a:hover {
+            opacity: 0.7;
+        }
+
+        /* Hero Section - Apple Style */
+        .hero {
+            background: var(--black);
+            color: white;
+            padding: 120px 2rem 80px;
+            text-align: center;
+            min-height: 90vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hero-eyebrow {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--red);
+            margin-bottom: 0.5rem;
+            letter-spacing: 0.5px;
+        }
+
+        .hero h1 {
+            font-size: clamp(3rem, 8vw, 6rem);
+            font-weight: 700;
+            margin-bottom: 1rem;
+            letter-spacing: -2px;
+            line-height: 1.05;
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            font-weight: 500;
+            color: #a1a1a6;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.5px;
+        }
+
+        .hero-description {
+            font-size: 1.2rem;
+            color: #a1a1a6;
+            max-width: 700px;
+            margin: 0 auto 3rem;
+            line-height: 1.4;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+
+        .btn-primary {
+            background: var(--red);
+            color: white;
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: 500;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary:hover {
+            background: #b71c1c;
+        }
+
+        .btn-secondary {
+            color: var(--red);
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: 500;
+            transition: opacity 0.3s;
+        }
+
+        .btn-secondary:hover {
+            opacity: 0.7;
+        }
+
+        .btn-secondary::after {
+            content: " >";
+            margin-left: 0.3rem;
+        }
+
+        /* Content Sections - Apple Style */
+        .content-section {
+            padding: 100px 2rem;
+            text-align: center;
+            background: var(--light-gray);
+        }
+
+        .content-section.dark {
+            background: var(--black);
+            color: white;
+        }
+
+        .content-section.white {
+            background: white;
+        }
+
+        .section-eyebrow {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--mid-gray);
+            margin-bottom: 0.5rem;
+            letter-spacing: 0.5px;
+        }
+
+        .content-section.dark .section-eyebrow {
+            color: var(--red);
+        }
+
+        .section-title {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 700;
+            margin-bottom: 1rem;
+            letter-spacing: -1.5px;
+            line-height: 1.1;
+        }
+
+        .section-description {
+            font-size: 1.3rem;
+            color: var(--mid-gray);
+            max-width: 800px;
+            margin: 0 auto 3rem;
+            line-height: 1.5;
+        }
+
+        .content-section.dark .section-description {
+            color: #a1a1a6;
+        }
+
+        /* Services Grid - Apple Style */
+        .services-grid {
+            max-width: 1200px;
+            margin: 4rem auto 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .service-card {
+            background: white;
+            border-radius: 18px;
+            padding: 3rem 2rem;
+            text-align: left;
+            transition: transform 0.3s;
+        }
+
+        .service-card:hover {
+            transform: scale(1.02);
+        }
+
+        .service-icon {
+            width: 100%;
+            height: 200px;
+            margin-bottom: 1.5rem;
+            display: block;
+            object-fit: contain;
+        }
+
+        .service-card h3 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--dark-gray);
+            letter-spacing: -0.5px;
+        }
+
+        .service-card p {
+            font-size: 1rem;
+            color: var(--mid-gray);
+            line-height: 1.6;
+        }
+
+        /* Feature Sections - Apple Style */
+        .feature-showcase {
+            padding: 100px 2rem;
+            background: white;
+        }
+
+        .feature-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .feature-text h2 {
+            font-size: clamp(2.5rem, 4vw, 3.5rem);
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            letter-spacing: -1px;
+            line-height: 1.1;
+        }
+
+        .feature-text p {
+            font-size: 1.1rem;
+            color: var(--mid-gray);
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .feature-list {
+            list-style: none;
+            margin-top: 2rem;
+        }
+
+        .feature-list li {
+            padding: 1rem 0;
+            font-size: 1rem;
+            color: var(--dark-gray);
+            border-bottom: 1px solid #d2d2d7;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .feature-list li:before {
+            content: "✓";
+            color: var(--red);
+            font-weight: bold;
+            font-size: 1.5rem;
+        }
+
+        .feature-visual {
+            background: linear-gradient(135deg, #f5f5f7 0%, #e8e8ed 100%);
+            border-radius: 18px;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .feature-visual img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .feature-visual-placeholder {
+            font-size: 6rem;
+            color: var(--mid-gray);
+        }
+
+        /* Gallery Section */
+        .gallery-hero {
+            background: var(--black);
+            color: white;
+            padding: 120px 2rem 80px;
+            text-align: center;
+            min-height: 60vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .gallery-section {
+            padding: 80px 2rem;
+            background: white;
+        }
+
+        .gallery-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .gallery-filters {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-bottom: 4rem;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 0.6rem 1.5rem;
+            background: transparent;
+            border: 1px solid #d2d2d7;
+            color: var(--dark-gray);
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+
+        .filter-btn:hover {
+            border-color: var(--red);
+            color: var(--red);
+        }
+
+        .filter-btn.active {
+            background: var(--black);
+            color: white;
+            border-color: var(--black);
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+            gap: 2rem;
+        }
+
+        .gallery-item {
+            background: white;
+            border-radius: 18px;
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+            border: 1px solid #d2d2d7;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .gallery-image {
+            width: 100%;
+            height: 300px;
+            background: linear-gradient(135deg, #f5f5f7 0%, #e8e8ed 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: var(--mid-gray);
+        }
+
+        .gallery-info {
+            padding: 2rem;
+        }
+
+        .gallery-info h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--dark-gray);
+            letter-spacing: -0.5px;
+        }
+
+        .gallery-info p {
+            color: var(--mid-gray);
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        .gallery-tag {
+            display: inline-block;
+            background: var(--light-gray);
+            padding: 0.4rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            margin-top: 1rem;
+            color: var(--dark-gray);
+            font-weight: 500;
+        }
+
+        /* CTA Section - Apple Style */
+        .cta-section {
+            background: var(--black);
+            color: white;
+            padding: 120px 2rem;
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 700;
+            margin-bottom: 1rem;
+            letter-spacing: -1.5px;
+        }
+
+        .cta-section p {
+            font-size: 1.3rem;
+            color: #a1a1a6;
+            margin-bottom: 3rem;
+        }
+
+        /* Footer - Apple Style */
+        footer {
+            background: var(--light-gray);
+            padding: 3rem 2rem 2rem;
+            border-top: 1px solid #d2d2d7;
+        }
+
+        .footer-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 3rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--dark-gray);
+            letter-spacing: 0.5px;
+        }
+
+        .footer-section p,
+        .footer-section a {
+            color: var(--mid-gray);
+            text-decoration: none;
+            display: block;
+            margin-bottom: 0.5rem;
+            font-size: 0.75rem;
+            transition: opacity 0.3s;
+        }
+
+        .footer-section a:hover {
+            opacity: 0.7;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid #d2d2d7;
+            color: var(--mid-gray);
+            font-size: 0.75rem;
+        }
+
+        /* Modal - Apple Style */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(20px);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+
+        .modal.active {
+            display: flex;
+        }
+
+        .modal-content {
+            background: white;
+            padding: 3rem;
+            border-radius: 18px;
+            max-width: 800px;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            font-size: 2rem;
+            cursor: pointer;
+            color: var(--mid-gray);
+            background: none;
+            border: none;
+            transition: opacity 0.3s;
+        }
+
+        .modal-close:hover {
+            opacity: 0.7;
+        }
+
+        .modal-content h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            letter-spacing: -1px;
+        }
+
+        .modal-content p {
+            color: var(--mid-gray);
+            line-height: 1.6;
+            font-size: 1.1rem;
+        }
+
+        .page {
+            display: none;
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                gap: 1rem;
+                font-size: 0.7rem;
+            }
+
+            .feature-content {
+                grid-template-columns: 1fr;
+            }
+
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-cta {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="#" class="logo" onclick="showPage('home')">
+                <img src="https://i.imgur.com/2S5TDRW.png" alt="Bentlines" class="logo-image">
+            </a>
+            <ul class="nav-links">
+                <li><a href="#" onclick="showPage('home')">Home</a></li>
+                <li><a href="#" onclick="showPage('gallery')">Projects</a></li>
+                <li><a href="#services" onclick="showPage('home'); setTimeout(() => scrollToSection('services'), 100)">Services</a></li>
+                <li><a href="#about" onclick="showPage('home'); setTimeout(() => scrollToSection('about'), 100)">About</a></li>
+                <li><a href="#contact" onclick="showPage('home'); setTimeout(() => scrollToSection('contact'), 100)">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- HOME PAGE -->
+    <div id="home" class="page active">
+        <!-- Hero Section -->
+        <section class="cta-section">
+            <h2>Have a project in mind?</h2>
+            <p>Let's make it happen together.</p>
+            <a href="mailto:info@bentlines.com" class="btn-primary">Get a Quote</a>
+        </section>
+    </div>
+
+    <!-- SINGLE FOOTER FOR ENTIRE SITE -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>BENTLINES</h3>
+                <p>Engineering & Welding</p>
+                <p>Turlock, California</p>
+                <p>License # 1052633</p>
+                <p>Business License # 938104</p>
+            </div>
+            <div class="footer-section">
+                <h3>SERVICES</h3>
+                <a href="#services" onclick="showPage('home'); setTimeout(() => scrollToSection('services'), 100)">Custom Fabrication</a>
+                <a href="#services" onclick="showPage('home'); setTimeout(() => scrollToSection('services'), 100)">Onsite Installation</a>
+                <a href="#services" onclick="showPage('home'); setTimeout(() => scrollToSection('services'), 100)">Equipment Repair</a>
+                <a href="#services" onclick="showPage('home'); setTimeout(() => scrollToSection('services'), 100)">Project Management</a>
+            </div>
+            <div class="footer-section">
+                <h3>COMPANY</h3>
+                <a href="#about" onclick="showPage('home'); setTimeout(() => scrollToSection('about'), 100)">About Us</a>
+                <a href="#" onclick="showPage('gallery')">Projects</a>
+                <a href="#contact" onclick="showPage('home'); setTimeout(() => scrollToSection('contact'), 100)">Contact</a>
+            </div>
+            <div class="footer-section">
+                <h3>CONTACT</h3>
+                <a href="mailto:info@bentlines.com">info@bentlines.com</a>
+                <p>Insured & Bonded</p>
+                <p>Emergency Services Available</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Bentlines. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Modal -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal()">&times;</button>
+            <h2 id="modalTitle"></h2>
+            <p id="modalDescription"></p>
+        </div>
+    </div>
+
+    <script>
+        function showPage(pageId) {
+            document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+            document.getElementById(pageId).classList.add('active');
+            window.scrollTo(0, 0);
+        }
+
+        function scrollToSection(sectionId) {
+            document.getElementById(sectionId).scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function filterGallery(category) {
+            const items = document.querySelectorAll('.gallery-item');
+            const buttons = document.querySelectorAll('.filter-btn');
+            
+            buttons.forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+            
+            items.forEach(item => {
+                if (category === 'all' || item.dataset.category.includes(category)) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        }
+
+        function openModal(projectId) {
+            const modal = document.getElementById('modal');
+            const title = document.getElementById('modalTitle');
+            const description = document.getElementById('modalDescription');
+            
+            const projects = {
+                1: { title: 'Custom Agricultural Structure', desc: 'Complete design and fabrication of a custom steel structure for dairy operations. Included structural engineering, fabrication, and onsite installation.' },
+                2: { title: 'Processing Equipment Install', desc: 'Professional installation of processing line equipment including custom mounting brackets and integration with existing systems.' },
+                3: { title: 'Emergency Equipment Repair', desc: '24-hour turnaround on critical conveyor system repairs. Our team worked through the night to minimize production downtime.' },
+                4: { title: 'Industrial Platform System', desc: 'Custom-designed elevated platform with safety railings and access stairs. Engineered to meet OSHA standards and customer specifications.' },
+                5: { title: 'Irrigation System Components', desc: 'Installation of custom fabricated irrigation system parts for large-scale agricultural operation. Weather-resistant coating applied.' },
+                6: { title: 'Stainless Steel Fabrication', desc: 'Food-grade stainless steel components with sanitary welds meeting FDA requirements for food processing applications.' },
+                7: { title: 'Structural Reinforcement', desc: 'Onsite structural repairs and reinforcement of existing equipment framework to extend service life and improve safety.' },
+                8: { title: 'Custom Farm Equipment', desc: 'Designed and built custom agricultural equipment attachments to precise client specifications using heavy-duty materials.' },
+                9: { title: 'Commercial Building Framework', desc: 'Complete installation of structural steel framework for commercial warehouse expansion project. Completed ahead of schedule.' }
+            };
+            
+            title.textContent = projects[projectId].title;
+            description.textContent = projects[projectId].desc;
+            
+            modal.classList.add('active');
+        }
+
+        function closeModal() {
+            document.getElementById('modal').classList.remove('active');
+        }
+
+        document.getElementById('modal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeModal();
+            }
+        });
+    </script>
+</body>
+</html>hero">
+            <p class="hero-eyebrow">Engineering & Welding Contractors</p>
+            <h1>Precision.<br>Excellence.<br>Delivered.</h1>
+            <p class="hero-subtitle">Over 70 years combined experience</p>
+            <p class="hero-description">
+                Transforming ideas into reality through expert fabrication, installation, and engineering services for agricultural, industrial, and manufacturing industries.
+            </p>
+            <div class="hero-cta">
+                <button class="btn-primary" onclick="showPage('gallery')">View Projects</button>
+                <a href="#services" class="btn-secondary" onclick="scrollToSection('services')">Explore Services</a>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services" class="content-section white">
+            <p class="section-eyebrow">CAPABILITIES</p>
+            <h2 class="section-title">Built for the work<br>you do.</h2>
+            <p class="section-description">
+                Comprehensive solutions designed around your specific needs. From concept to completion, we deliver superior quality every step of the way.
+            </p>
+            <div class="services-grid">
+                <div class="service-card">
+                    <img src="https://raw.githubusercontent.com/Git-Rocky-Stack/Bentlines/refs/heads/main/images/categories/Custom%20Fabrication.png" alt="Custom Fabrication" class="service-icon">
+                    <h3>Custom Fabrication</h3>
+                    <p>Expert design and metalwork bringing your vision to life with precision engineering and superior craftsmanship.</p>
+                </div>
+                <div class="service-card">
+                    <img src="https://raw.githubusercontent.com/Git-Rocky-Stack/Bentlines/refs/heads/main/images/categories/Onsite%20Installation.png" alt="Onsite Installation" class="service-icon">
+                    <h3>Onsite Installation</h3>
+                    <p>Professional installation services with minimal downtime. We handle complex projects with efficiency and precision.</p>
+                </div>
+                <div class="service-card">
+                    <img src="https://raw.githubusercontent.com/Git-Rocky-Stack/Bentlines/refs/heads/main/images/categories/Equipment%20Repair.png" alt="Equipment Repair" class="service-icon">
+                    <h3>Equipment Repair</h3>
+                    <p>Fast, reliable repairs and modifications. Emergency services available to keep your operations running smoothly.</p>
+                </div>
+                <div class="service-card">
+                    <img src="https://raw.githubusercontent.com/Git-Rocky-Stack/Bentlines/refs/heads/main/images/categories/Project%20Management.png" alt="Project Management" class="service-icon">
+                    <h3>Project Management</h3>
+                    <p>Complete project coordination from planning to execution, ensuring on-time delivery within budget.</p>
+                </div>
+                <div class="service-card">
+                    <img src="https://raw.githubusercontent.com/Git-Rocky-Stack/Bentlines/refs/heads/main/images/categories/Industrial%20Welding.png" alt="Industrial Welding" class="service-icon">
+                    <h3>Industrial Welding</h3>
+                    <p>Certified welding services meeting the highest industry standards for agricultural and manufacturing sectors.</p>
+                </div>
+                <div class="service-card">
+                    <img src="https://raw.githubusercontent.com/Git-Rocky-Stack/Bentlines/refs/heads/main/images/categories/Engineering%20Design.png" alt="Engineering Design" class="service-icon">
+                    <h3>Engineering Design</h3>
+                    <p>Innovative solutions combining technical expertise with practical experience to solve complex challenges.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Feature Section 1 -->
+        <section id="about" class="feature-showcase" style="background: var(--light-gray);">
+            <div class="feature-content">
+                <div class="feature-text">
+                    <h2>Family owned.<br>Industry leading.</h2>
+                    <p>Based in Turlock, CA, Bentlines brings over 70 years of combined experience to every project. As a family-owned business, we're built on integrity, safety, and a commitment to excellence that shows in everything we create.</p>
+                    <p>We work closely with each customer to develop customized solutions that exceed expectations. Our dedication to quality and safety has made us the trusted choice for agricultural, industrial, and manufacturing clients throughout Central California.</p>
+                </div>
+                <div class="feature-visual">
+                    <img src="https://raw.githubusercontent.com/Git-Rocky-Stack/Bentlines/refs/heads/main/images/The%20Dream%20Team.jpg" alt="Bentlines Team">
+                </div>
+            </div>
+        </section>
+
+        <!-- Feature Section 2 -->
+        <section class="feature-showcase">
+            <div class="feature-content">
+                <div class="feature-visual">
+                    <img src="https://raw.githubusercontent.com/Git-Rocky-Stack/Bentlines/ad6c32f4595007549f72a390529c7a04a047b710/images/categories/Production%20Floor.png" alt="Bentlines Production Floor">
+                </div>
+                <div class="feature-text">
+                    <h2>Why industry leaders choose Bentlines.</h2>
+                    <ul class="feature-list">
+                        <li>Licensed, Insured & Bonded - License #1052633</li>
+                        <li>Safety-First Approach - Protecting our team and yours</li>
+                        <li>Custom Solutions - Tailored to your exact specifications</li>
+                        <li>Quality Guaranteed - Superior craftsmanship, every time</li>
+                        <li>Emergency Services - Available when you need us most</li>
+                        <li>Experienced Team - Decades of combined expertise</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Dark CTA Section -->
+        <section class="content-section dark">
+            <p class="section-eyebrow">COMMITMENT</p>
+            <h2 class="section-title">Built on values.<br>Driven by excellence.</h2>
+            <p class="section-description">
+                "Commit your work to the Lord, and your plans will be established." - Proverbs 16:3
+            </p>
+            <p class="section-description" style="margin-top: 2rem;">
+                Our faith-based values guide every decision we make. We're committed to honest business practices, fair treatment, and delivering work that we're proud to stand behind.
+            </p>
+        </section>
+
+        <!-- Contact CTA -->
+        <section id="contact" class="cta-section">
+            <h2>Ready to get started?</h2>
+            <p>Let's discuss how we can bring your project to life.</p>
+            <a href="mailto:info@bentlines.com" class="btn-primary">Contact Us Today</a>
+        </section>
+    </div>
+
+    <!-- GALLERY PAGE -->
+    <div id="gallery" class="page">
+        <section class="gallery-hero">
+            <p class="hero-eyebrow">Portfolio</p>
+            <h1>Our Work.<br>Your Vision.</h1>
+            <p class="hero-subtitle">Completed projects showcasing precision and excellence</p>
+        </section>
+
+        <section class="gallery-section">
+            <div class="gallery-container">
+                <div class="gallery-filters">
+                    <button class="filter-btn active" onclick="filterGallery('all')">All Projects</button>
+                    <button class="filter-btn" onclick="filterGallery('fabrication')">Fabrication</button>
+                    <button class="filter-btn" onclick="filterGallery('installation')">Installation</button>
+                    <button class="filter-btn" onclick="filterGallery('repair')">Repair</button>
+                    <button class="filter-btn" onclick="filterGallery('agricultural')">Agricultural</button>
+                </div>
+
+                <div class="gallery-grid" id="galleryGrid">
+                    <div class="gallery-item" data-category="fabrication agricultural" onclick="openModal(1)">
+                        <div class="gallery-image">🏗️</div>
+                        <div class="gallery-info">
+                            <h3>Custom Agricultural Structure</h3>
+                            <p>Complete design and fabrication of custom steel structure for dairy operations in Turlock. Engineered for durability and efficiency.</p>
+                            <span class="gallery-tag">Fabrication</span>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item" data-category="installation" onclick="openModal(2)">
+                        <div class="gallery-image">⚙️</div>
+                        <div class="gallery-info">
+                            <h3>Processing Equipment Install</h3>
+                            <p>Onsite installation of processing line equipment including custom mounting and seamless integration with existing systems.</p>
+                            <span class="gallery-tag">Installation</span>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item" data-category="repair" onclick="openModal(3)">
+                        <div class="gallery-image">🔧</div>
+                        <div class="gallery-info">
+                            <h3>Emergency Equipment Repair</h3>
+                            <p>24-hour turnaround on critical conveyor system repairs. Minimized downtime with efficient problem-solving.</p>
+                            <span class="gallery-tag">Repair</span>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item" data-category="fabrication" onclick="openModal(4)">
+                        <div class="gallery-image">🏭</div>
+                        <div class="gallery-info">
+                            <h3>Industrial Platform System</h3>
+                            <p>Custom-designed elevated platform with safety railings and access stairs. Engineered to exceed OSHA standards.</p>
+                            <span class="gallery-tag">Fabrication</span>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item" data-category="installation agricultural" onclick="openModal(5)">
+                        <div class="gallery-image">🌾</div>
+                        <div class="gallery-info">
+                            <h3>Irrigation System Components</h3>
+                            <p>Installation of custom fabricated irrigation parts for large-scale agricultural operation with weather-resistant coating.</p>
+                            <span class="gallery-tag">Installation</span>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item" data-category="fabrication" onclick="openModal(6)">
+                        <div class="gallery-image">🔩</div>
+                        <div class="gallery-info">
+                            <h3>Stainless Steel Fabrication</h3>
+                            <p>Food-grade stainless steel components for processing facility with sanitary welds meeting FDA requirements.</p>
+                            <span class="gallery-tag">Fabrication</span>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item" data-category="repair" onclick="openModal(7)">
+                        <div class="gallery-image">⚡</div>
+                        <div class="gallery-info">
+                            <h3>Structural Reinforcement</h3>
+                            <p>Onsite structural repairs and reinforcement extending service life and improving operational safety.</p>
+                            <span class="gallery-tag">Repair</span>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item" data-category="agricultural fabrication" onclick="openModal(8)">
+                        <div class="gallery-image">🚜</div>
+                        <div class="gallery-info">
+                            <h3>Custom Farm Equipment</h3>
+                            <p>Designed and built custom agricultural equipment attachments to precise specifications using heavy-duty materials.</p>
+                            <span class="gallery-tag">Agricultural</span>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item" data-category="installation" onclick="openModal(9)">
+                        <div class="gallery-image">🏢</div>
+                        <div class="gallery-info">
+                            <h3>Commercial Building Framework</h3>
+                            <p>Complete installation of structural steel framework for commercial warehouse expansion. Delivered ahead of schedule.</p>
+                            <span class="gallery-tag">Installation</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="
