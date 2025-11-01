@@ -625,7 +625,7 @@
                     From custom fabrication to emergency repairs, we deliver precision-engineered solutions for agricultural and industrial operations.
                 </p>
                 <div class="hero-cta">
-                    <a href="mailto:info@bentlines.com" class="btn-primary">Get Started</a>
+                    <a href="#contact" onclick="scrollToSection('contact')" class="btn-primary">Get Started</a>
                     <a href="#gallery" onclick="showPage('gallery')" class="btn-secondary">View Our Work</a>
                 </div>
             </section>
@@ -728,132 +728,75 @@
         <!-- GALLERY PAGE -->
         <div id="gallery" class="page">
             <section class="gallery-hero">
-                <p class="hero-eyebrow">PORTFOLIO</p>
-                <h1>Precision Meets<br>Performance.</h1>
-                <p class="hero-subtitle">Every project tells a story of innovation, craftsmanship, and dedication</p>
-                <p class="hero-description">
-                    From concept to completion, explore how we've transformed challenges into solutions for Central California's leading agricultural and industrial operations.
-                </p>
+                <p class="hero-eyebrow">Portfolio</p>
+                <h1>Our Work.<br>Your Vision.</h1>
+                <p class="hero-subtitle">Completed projects showcasing precision and excellence</p>
             </section>
 
-            <section class="content-section">
-                <p class="section-eyebrow">OUR WORK</p>
-                <h2 class="section-title">Built to last.<br>Engineered to excel.</h2>
-                <p class="section-description">
-                    Browse through our completed projects showcasing the quality and precision that defines Bentlines.
-                </p>
-                <div class="services-grid">
-                    <!-- Row 1 -->
-                    <div class="service-card">
-                        <div class="gallery-image">🏗️</div>
-                        <h3>Dairy Facility Expansion</h3>
-                        <p>Complete structural steel framework for 50,000 sq ft dairy processing facility in Turlock.</p>
+            <section class="gallery-section">
+                <div class="gallery-container">
+                    <div class="gallery-filters">
+                        <button class="filter-btn active" onclick="filterGallery('all')">All Projects</button>
+                        <button class="filter-btn" onclick="filterGallery('fabrication')">Fabrication</button>
+                        <button class="filter-btn" onclick="filterGallery('installation')">Installation</button>
+                        <button class="filter-btn" onclick="filterGallery('repair')">Repair</button>
+                        <button class="filter-btn" onclick="filterGallery('agricultural')">Agricultural</button>
                     </div>
-                    <div class="service-card">
-                        <div class="gallery-image">⚙️</div>
-                        <h3>Conveyor System Install</h3>
-                        <p>Custom-designed conveyor system for almond processing plant with automated controls.</p>
-                    </div>
-                    <div class="service-card">
-                        <div class="gallery-image">🔧</div>
-                        <h3>Emergency Repair Service</h3>
-                        <p>24-hour turnaround on critical harvest equipment repairs during peak season.</p>
-                    </div>
-                    <!-- Row 2 -->
-                    <div class="service-card">
-                        <div class="gallery-image">🏭</div>
-                        <h3>Industrial Platform</h3>
-                        <p>Multi-level steel platform with OSHA-compliant railings for manufacturing facility.</p>
-                    </div>
-                    <div class="service-card">
-                        <div class="gallery-image">🌾</div>
-                        <h3>Irrigation Components</h3>
-                        <p>Custom fabricated irrigation system parts for 500-acre farming operation.</p>
-                    </div>
-                    <div class="service-card">
-                        <div class="gallery-image">🔩</div>
-                        <h3>Stainless Steel Tanks</h3>
-                        <p>Food-grade stainless steel storage tanks with sanitary welds for wine production.</p>
-                    </div>
-                    <!-- Row 3 -->
-                    <div class="service-card">
-                        <div class="gallery-image">⚡</div>
-                        <h3>Structural Reinforcement</h3>
-                        <p>Seismic retrofitting and structural reinforcement for aging warehouse facility.</p>
-                    </div>
-                    <div class="service-card">
-                        <div class="gallery-image">🚜</div>
-                        <h3>Custom Harvester Attachment</h3>
-                        <p>Specialized harvesting attachment designed for unique crop requirements.</p>
-                    </div>
-                    <div class="service-card">
-                        <div class="gallery-image">🏢</div>
-                        <h3>Commercial Building Frame</h3>
-                        <p>Complete steel framework for 30,000 sq ft commercial distribution center.</p>
-                    </div>
-                    <!-- Row 4 -->
-                    <div class="service-card">
-                        <div class="gallery-image">🔨</div>
-                        <h3>Processing Line Upgrade</h3>
-                        <p>Modernization of tomato processing line with custom stainless steel components.</p>
-                    </div>
-                    <div class="service-card">
-                        <div class="gallery-image">🏗️</div>
-                        <h3>Silo Installation</h3>
-                        <p>Installation of grain storage silos with automated feed systems.</p>
-                    </div>
-                    <div class="service-card">
-                        <div class="gallery-image">⚒️</div>
-                        <h3>Heavy Equipment Repair</h3>
-                        <p>Complete overhaul and reinforcement of industrial loader bucket assembly.</p>
-                    </div>
-                    <!-- Row 5 -->
-                    <div class="service-card">
-                        <div class="gallery-image">🏭</div>
-                        <h3>Mezzanine Installation</h3>
-                        <p>Custom mezzanine floor system doubling usable warehouse space.</p>
-                    </div>
-                    <div class="service-card">
-                        <div class="gallery-image">🔧</div>
-                        <h3>Pump Station Fabrication</h3>
-                        <p>Complete pump station assembly for agricultural irrigation system.</p>
-                    </div>
-                    <div class="service-card">
-                        <div class="gallery-image">⚙️</div>
-                        <h3>Sorting Equipment</h3>
-                        <p>Custom sorting tables and conveyors for nut processing facility.</p>
-                    </div>
-                    <!-- Row 6 -->
-                    <div class="service-card">
-                        <div class="gallery-image">🏗️</div>
-                        <h3>Shade Structure</h3>
-                        <p>Large-scale shade structures for equipment storage and livestock protection.</p>
-                    </div>
-                    <div class="service-card">
-                        <div class="gallery-image">🔩</div>
-                        <h3>Tank Modifications</h3>
-                        <p>Modification and upgrade of existing storage tanks with new access ports.</p>
-                    </div>
-                    <div class="service-card">
-                        <div class="gallery-image">⚡</div>
-                        <h3>Safety Railing Systems</h3>
-                        <p>Installation of comprehensive safety railing throughout production facility.</p>
-                    </div>
-                    <!-- Row 7 -->
-                    <div class="service-card">
-                        <div class="gallery-image">🚜</div>
-                        <h3>Equipment Mounting</h3>
-                        <p>Custom mounting brackets for specialized agricultural equipment.</p>
-                    </div>
-                    <div class="service-card">
-                        <div class="gallery-image">🏢</div>
-                        <h3>Loading Dock Extension</h3>
-                        <p>Structural extension of loading dock with hydraulic levelers.</p>
-                    </div>
-                    <div class="service-card">
-                        <div class="gallery-image">🔨</div>
-                        <h3>Cooling System Framework</h3>
-                        <p>Support framework for industrial cooling system installation.</p>
+
+                    <div class="gallery-grid" id="galleryGrid">
+                        <div class="gallery-item" data-category="fabrication agricultural">
+                            <div class="gallery-image">🏗️</div>
+                            <div class="gallery-info">
+                                <h3>Custom Agricultural Structure</h3>
+                                <p>Complete design and fabrication of custom steel structure for dairy operations in Turlock. Engineered for durability and efficiency.</p>
+                                <span class="gallery-tag">Fabrication</span>
+                            </div>
+                        </div>
+
+                        <div class="gallery-item" data-category="installation">
+                            <div class="gallery-image">⚙️</div>
+                            <div class="gallery-info">
+                                <h3>Processing Equipment Install</h3>
+                                <p>Onsite installation of processing line equipment including custom mounting and seamless integration with existing systems.</p>
+                                <span class="gallery-tag">Installation</span>
+                            </div>
+                        </div>
+
+                        <div class="gallery-item" data-category="repair">
+                            <div class="gallery-image">🔧</div>
+                            <div class="gallery-info">
+                                <h3>Emergency Equipment Repair</h3>
+                                <p>24-hour turnaround on critical conveyor system repairs. Minimized downtime with efficient problem-solving.</p>
+                                <span class="gallery-tag">Repair</span>
+                            </div>
+                        </div>
+
+                        <div class="gallery-item" data-category="fabrication">
+                            <div class="gallery-image">🏭</div>
+                            <div class="gallery-info">
+                                <h3>Industrial Platform System</h3>
+                                <p>Custom-designed elevated platform with safety railings and access stairs. Engineered to exceed OSHA standards.</p>
+                                <span class="gallery-tag">Fabrication</span>
+                            </div>
+                        </div>
+
+                        <div class="gallery-item" data-category="installation agricultural">
+                            <div class="gallery-image">🌾</div>
+                            <div class="gallery-info">
+                                <h3>Irrigation System Components</h3>
+                                <p>Installation of custom fabricated irrigation parts for large-scale agricultural operation with weather-resistant coating.</p>
+                                <span class="gallery-tag">Installation</span>
+                            </div>
+                        </div>
+
+                        <div class="gallery-item" data-category="fabrication">
+                            <div class="gallery-image">🔩</div>
+                            <div class="gallery-info">
+                                <h3>Stainless Steel Fabrication</h3>
+                                <p>Food-grade stainless steel components for processing facility with sanitary welds meeting FDA requirements.</p>
+                                <span class="gallery-tag">Fabrication</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -909,7 +852,7 @@
         </div>
         <div class="footer-bottom">
             <div class="footer-copyright">
-                © 2025 Bentlines. All rights reserved. | est. 2016
+                © 2024 Bentlines. All rights reserved. | est. 2016
             </div>
             <div class="footer-socials">
                 <a href="#">LinkedIn</a>
