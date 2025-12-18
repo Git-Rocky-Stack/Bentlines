@@ -1,0 +1,1124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bentlines - Engineering & Welding Contractors</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --black: #000000;
+            --red: #d32f2f;
+            --dark-gray: #1d1d1f;
+            --light-gray: #f5f5f7;
+            --mid-gray: #86868b;
+        }
+
+        html, body {
+            height: 100%;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            -webkit-font-smoothing: antialiased;
+            color: var(--dark-gray);
+            background: #fff;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* Main content wrapper */
+        .main-wrapper {
+            flex: 1 0 auto;
+        }
+
+        /* Navigation - Apple Style */
+        nav {
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: saturate(180%) blur(20px);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.5rem 2rem;
+            height: 60px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            transition: opacity 0.3s;
+        }
+
+        .logo-image {
+            width: 200px;
+            height: auto;
+            display: block;
+        }
+        
+        @media (min-width: 968px) {
+            .logo-image {
+                width: 450px;
+            }
+        }
+
+        .logo:hover {
+            opacity: 0.85;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #f5f5f7;
+            text-decoration: none;
+            font-size: 0.75rem;
+            font-weight: 400;
+            transition: opacity 0.3s;
+            letter-spacing: 0.3px;
+        }
+
+        .nav-links a:hover {
+            opacity: 0.7;
+        }
+
+        /* Hero Section - Apple Style */
+        .hero {
+            background: var(--black);
+            color: white;
+            padding: 120px 2rem 80px;
+            text-align: center;
+            min-height: 90vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hero-eyebrow {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--red);
+            margin-bottom: 0.5rem;
+            letter-spacing: 0.5px;
+        }
+
+        .hero h1 {
+            font-size: clamp(3rem, 8vw, 6rem);
+            font-weight: 700;
+            margin-bottom: 1rem;
+            letter-spacing: -2px;
+            line-height: 1.05;
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            font-weight: 500;
+            color: #a1a1a6;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.5px;
+        }
+
+        .hero-description {
+            font-size: 1.2rem;
+            color: #a1a1a6;
+            max-width: 700px;
+            margin: 0 auto 3rem;
+            line-height: 1.4;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+
+        .btn-primary {
+            background: var(--red);
+            color: white;
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: 500;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary:hover {
+            background: #b71c1c;
+        }
+
+        .btn-secondary {
+            color: var(--red);
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: 500;
+            transition: opacity 0.3s;
+        }
+
+        .btn-secondary:hover {
+            opacity: 0.7;
+        }
+
+        .btn-secondary::after {
+            content: " >";
+            margin-left: 0.3rem;
+        }
+
+        /* Content Sections - Apple Style */
+        .content-section {
+            padding: 100px 2rem;
+            text-align: center;
+            background: var(--light-gray);
+        }
+
+        .content-section.dark {
+            background: var(--black);
+            color: white;
+        }
+
+        .section-eyebrow {
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--red);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+        }
+
+        .section-title {
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-weight: 700;
+            margin-bottom: 2rem;
+            letter-spacing: -1px;
+            line-height: 1.1;
+        }
+
+        .content-section.dark .section-title {
+            color: white;
+        }
+
+        .section-description {
+            font-size: 1.3rem;
+            color: var(--mid-gray);
+            max-width: 800px;
+            margin: 0 auto 3rem;
+            line-height: 1.4;
+        }
+
+        .content-section.dark .section-description {
+            color: #a1a1a6;
+        }
+
+        /* Services Grid - Apple Style */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .service-card {
+            background: white;
+            border-radius: 20px;
+            padding: 2.5rem 2rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
+        }
+
+        .service-icon {
+            width: 100%;
+            height: 200px;
+            margin-bottom: 1.5rem;
+            object-fit: contain;
+            padding: 1rem;
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--dark-gray);
+        }
+
+        .service-card p {
+            color: var(--mid-gray);
+            line-height: 1.5;
+        }
+
+        /* Feature Showcase - Apple Style */
+        .feature-showcase {
+            padding: 100px 2rem;
+            background: white;
+        }
+
+        .feature-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem;
+            align-items: center;
+        }
+
+        .feature-text h2 {
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            letter-spacing: -1px;
+            line-height: 1.1;
+        }
+
+        .feature-text p {
+            font-size: 1.1rem;
+            color: var(--mid-gray);
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .feature-visual img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 20px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+        }
+
+        .feature-visual {
+            width: 100%;
+            height: 400px;
+            overflow: hidden;
+            border-radius: 20px;
+        }
+
+        .feature-list {
+            list-style: none;
+            margin-top: 2rem;
+        }
+
+        .feature-list li {
+            padding: 0.8rem 0;
+            border-bottom: 1px solid #e5e5e7;
+            color: var(--dark-gray);
+            font-size: 1.1rem;
+        }
+
+        .feature-list li:last-child {
+            border-bottom: none;
+        }
+
+        /* CTA Section - This goes BEFORE the footer */
+        .cta-section {
+            background: linear-gradient(135deg, var(--red), #b71c1c);
+            padding: 100px 2rem;
+            text-align: center;
+            color: white;
+        }
+
+        .cta-section h2 {
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            font-weight: 700;
+            margin-bottom: 1rem;
+            letter-spacing: -1px;
+        }
+
+        .cta-section p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-section .btn-primary {
+            background: white;
+            color: var(--red);
+            font-size: 1.1rem;
+            padding: 1rem 2.5rem;
+        }
+
+        .cta-section .btn-primary:hover {
+            background: var(--light-gray);
+        }
+
+        /* Footer - This is at the VERY BOTTOM */
+        footer {
+            background: var(--dark-gray);
+            color: #86868b;
+            padding: 3rem 2rem 2rem;
+            flex-shrink: 0;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid #333;
+        }
+
+        .footer-section h3 {
+            color: #f5f5f7;
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.8rem;
+            color: #86868b;
+            font-size: 0.9rem;
+        }
+
+        .footer-section a {
+            color: #86868b;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+
+        .footer-section a:hover {
+            color: #f5f5f7;
+        }
+
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 2rem auto 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .footer-copyright {
+            font-size: 0.85rem;
+        }
+
+        .footer-socials {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .footer-socials a {
+            color: #86868b;
+            transition: color 0.3s;
+        }
+
+        .footer-socials a:hover {
+            color: var(--red);
+        }
+
+        /* Gallery Styles */
+        .gallery-hero {
+            background: var(--black);
+            color: white;
+            padding: 120px 2rem 80px;
+            text-align: center;
+        }
+
+        .gallery-section {
+            padding: 80px 2rem;
+            background: var(--light-gray);
+            min-height: 80vh;
+        }
+
+        .gallery-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .gallery-filters {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            background: white;
+            border: 1px solid #e5e5e7;
+            padding: 0.6rem 1.5rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            color: var(--dark-gray);
+        }
+
+        .filter-btn.active,
+        .filter-btn:hover {
+            background: var(--red);
+            color: white;
+            border-color: var(--red);
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .gallery-item {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+        }
+
+        .gallery-image {
+            width: 100%;
+            height: 250px;
+            background: linear-gradient(135deg, var(--red), #b71c1c);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+        }
+
+        .gallery-info {
+            padding: 1.5rem;
+        }
+
+        .gallery-info h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: var(--dark-gray);
+        }
+
+        .gallery-info p {
+            color: var(--mid-gray);
+            line-height: 1.5;
+            margin-bottom: 1rem;
+        }
+
+        .gallery-tag {
+            display: inline-block;
+            background: var(--light-gray);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            color: var(--red);
+            font-weight: 500;
+        }
+
+        /* Page management */
+        .page {
+            display: none;
+            min-height: calc(100vh - 48px);
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 968px) {
+            .feature-content {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .feature-content:nth-child(even) .feature-text {
+                order: 1;
+            }
+
+            .hero h1 {
+                font-size: clamp(2.5rem, 6vw, 4rem);
+            }
+
+            .nav-links {
+                gap: 1.5rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero {
+                padding: 100px 1.5rem 60px;
+            }
+        }
+
+        /* Modal/Lightbox Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            padding-top: 50px;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.95);
+        }
+
+        .modal-content {
+            margin: auto;
+            display: block;
+            max-width: 90%;
+            max-height: 80vh;
+            object-fit: contain;
+            animation: zoom 0.6s;
+        }
+
+        @keyframes zoom {
+            from {transform: scale(0)}
+            to {transform: scale(1)}
+        }
+
+        .close {
+            position: absolute;
+            top: 15px;
+            right: 35px;
+            color: #f1f1f1;
+            font-size: 40px;
+            font-weight: bold;
+            transition: 0.3s;
+            cursor: pointer;
+            z-index: 2001;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: var(--red);
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        #caption {
+            margin: auto;
+            display: block;
+            width: 80%;
+            max-width: 700px;
+            text-align: center;
+            color: #ccc;
+            padding: 10px 0;
+            height: auto;
+        }
+
+        /* Make gallery images clickable */
+        .service-card img {
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .service-card img:hover {
+            transform: scale(1.02);
+        }
+
+        @media only screen and (max-width: 700px){
+            .modal-content {
+                width: 95%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="#home" class="logo" onclick="showPage('home')">
+                <img src="https://raw.githubusercontent.com/Git-Rocky-Stack/Bentlines/bcb3c15da45eceedba37ea6d7437157f0c9ab0a3/images/logo4.png" alt="Bentlines Logo" class="logo-image">
+            </a>
+            <ul class="nav-links">
+                <li><a href="#home" onclick="showPage('home')">Home</a></li>
+                <li><a href="#services" onclick="scrollToSection('services')">Services</a></li>
+                <li><a href="#about" onclick="scrollToSection('about')">About</a></li>
+                <li><a href="#gallery" onclick="showPage('gallery')">Gallery</a></li>
+                <li><a href="#contact" onclick="scrollToSection('contact')">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main wrapper for flex layout -->
+    <div class="main-wrapper">
+        <!-- HOME PAGE -->
+        <div id="home" class="page active">
+            <!-- Hero Section -->
+            <section class="hero">
+                <p class="hero-eyebrow">BENTLINES</p>
+                <h1>Engineering.<br>Fabrication.<br>Excellence.</h1>
+                <p class="hero-subtitle">Industrial solutions that power Central California</p>
+                <p class="hero-description">
+                    From custom fabrication to emergency repairs, we deliver precision-engineered solutions for agricultural and industrial operations.
+                </p>
+                <div class="hero-cta">
+                    <a href="mailto:info@bentlines.com" class="btn-primary">Get Started</a>
+                    <a href="#gallery" onclick="showPage('gallery')" class="btn-secondary">View Our Capabilities</a>
+                </div>
+            </section>
+
+            <!-- Services Section -->
+            <section id="services" class="content-section">
+                <p class="section-eyebrow">CAPABILITIES</p>
+                <h2 class="section-title">What we do best.</h2>
+                <p class="section-description">
+                    Comprehensive engineering and fabrication services tailored to your exact specifications. Licensed, insured, and ready to tackle your most challenging projects.
+                </p>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <img src="https://raw.githubusercontent.com/Git-Rocky-Stack/Bentlines/refs/heads/main/images/categories/Custom%20Fabrication.png" alt="Custom Fabrication" class="service-icon">
+                        <h3>Custom Fabrication</h3>
+                        <p>Precision steel and metal fabrication built to your exact specifications. From concept to completion.</p>
+                    </div>
+                    <div class="service-card">
+                        <img src="https://raw.githubusercontent.com/Git-Rocky-Stack/Bentlines/refs/heads/main/images/categories/Onsite%20Installation.png" alt="Onsite Installation" class="service-icon">
+                        <h3>Onsite Installation</h3>
+                        <p>Professional installation services with minimal downtime. We handle complex projects with efficiency and precision.</p>
+                    </div>
+                    <div class="service-card">
+                        <img src="https://raw.githubusercontent.com/Git-Rocky-Stack/Bentlines/refs/heads/main/images/categories/Equipment%20Repair.png" alt="Equipment Repair" class="service-icon">
+                        <h3>Equipment Repair</h3>
+                        <p>Fast, reliable repairs and modifications. Emergency services available to keep your operations running smoothly.</p>
+                    </div>
+                    <div class="service-card">
+                        <img src="https://raw.githubusercontent.com/Git-Rocky-Stack/Bentlines/refs/heads/main/images/categories/Project%20Management.png" alt="Project Management" class="service-icon">
+                        <h3>Project Management</h3>
+                        <p>Complete project coordination from planning to execution, ensuring on-time delivery within budget.</p>
+                    </div>
+                    <div class="service-card">
+                        <img src="https://raw.githubusercontent.com/Git-Rocky-Stack/Bentlines/refs/heads/main/images/categories/Industrial%20Welding.png" alt="Industrial Welding" class="service-icon">
+                        <h3>Industrial Welding</h3>
+                        <p>Certified welding services meeting the highest industry standards for agricultural and manufacturing sectors.</p>
+                    </div>
+                    <div class="service-card">
+                        <img src="https://raw.githubusercontent.com/Git-Rocky-Stack/Bentlines/refs/heads/main/images/categories/Engineering%20Design.png" alt="Engineering Design" class="service-icon">
+                        <h3>Engineering Design</h3>
+                        <p>Innovative solutions combining technical expertise with practical experience to solve complex challenges.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Feature Section 1 -->
+            <section id="about" class="feature-showcase" style="background: var(--light-gray);">
+                <div class="feature-content">
+                    <div class="feature-text">
+                        <h2>Family owned.<br>Industry leading.</h2>
+                        <p>Based in Turlock, CA, Bentlines brings over 70 years of combined experience to every project. As a family-owned business, we're built on integrity, safety, and a commitment to excellence that shows in everything we create.</p>
+                        <p>We work closely with each customer to develop customized solutions that exceed expectations. Our dedication to quality and safety has made us the trusted choice for agricultural, industrial, and manufacturing clients throughout Central California.</p>
+                    </div>
+                    <div class="feature-visual">
+                        <img src="https://raw.githubusercontent.com/Git-Rocky-Stack/Bentlines/9c2dbb02559faf726ba70556aa55cce51f219a9e/images/Team1.png" alt="Bentlines Team">
+                    </div>
+                </div>
+            </section>
+
+            <!-- Feature Section 2 -->
+            <section class="feature-showcase">
+                <div class="feature-content">
+                    <div class="feature-visual">
+                        <img src="https://raw.githubusercontent.com/Git-Rocky-Stack/Bentlines/ad6c32f4595007549f72a390529c7a04a047b710/images/categories/Production%20Floor.png" alt="Bentlines Production Floor">
+                    </div>
+                    <div class="feature-text">
+                        <h2>Why industry leaders choose Bentlines.</h2>
+                        <ul class="feature-list">
+                            <li>Licensed, Insured & Bonded - License #1052633</li>
+                            <li>Safety-First Approach - Protecting our team and yours</li>
+                            <li>Custom Solutions - Tailored to your exact specifications</li>
+                            <li>Quality Guaranteed - Superior craftsmanship, every time</li>
+                            <li>Emergency Services - Available when you need us most</li>
+                            <li>Experienced Team - Decades of combined expertise</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Dark CTA Section -->
+            <section class="content-section dark">
+                <p class="section-eyebrow">COMMITMENT</p>
+                <h2 class="section-title">Built on values.<br>Driven by excellence.</h2>
+                <p class="section-description">
+                    "Commit your work to the Lord, and your plans will be established." - Proverbs 16:3
+                </p>
+                <p class="section-description" style="margin-top: 2rem;">
+                    Our faith-based values guide every decision we make. We're committed to honest business practices, fair treatment, and delivering work that we're proud to stand behind.
+                </p>
+            </section>
+
+            <!-- Contact CTA - "Have a project in mind?" section -->
+            <section id="contact" class="cta-section">
+                <h2>Have a project in mind?</h2>
+                <p>Let's discuss how we can bring your vision to life.</p>
+                <a href="mailto:info@bentlines.com" class="btn-primary">Contact Us Today</a>
+            </section>
+        </div>
+
+        <!-- GALLERY PAGE -->
+        <div id="gallery" class="page">
+            <section class="hero">
+                <p class="hero-eyebrow">PORTFOLIO</p>
+                <h1>Precision Meets<br>Performance.</h1>
+                <p class="hero-subtitle">Every project tells a story of innovation, craftsmanship, and dedication</p>
+                <p class="hero-description">
+                    From concept to completion, explore how we've transformed challenges into solutions for Central California's leading agricultural and industrial operations.
+                </p>
+            </section>
+
+            <section class="content-section">
+                <p class="section-eyebrow">OUR CAPABILITIES</p>
+                <h2 class="section-title">What we can build<br>for you.</h2>
+                <p class="section-description">
+                    Browse through our comprehensive portfolio of service capabilities and conceptual renderings from past projects - showcasing the quality, versatility, and precision that defines Bentlines.
+                </p>
+                <div class="services-grid">
+                    <!-- Row 1 -->
+                    <div class="service-card">
+                        <img src="https://raw.githubusercontent.com/Git-Rocky-Stack/Bentlines/refs/heads/main/images/abilities/Dairy%20Facility.png" alt="Dairy Facility Expansion" class="service-icon">
+                        <h3>Dairy Facility Expansion</h3>
+                        <p>Complete structural steel framework for 50,000 sq ft dairy processing facility in Turlock.</p>
+                    </div>
+                    <div class="service-card">
+                        <img src="https://raw.githubusercontent.com/Git-Rocky-Stack/Bentlines/refs/heads/main/images/abilities/Conveyer%20System.png" alt="Conveyor System Install" class="service-icon">
+                        <h3>Conveyor System Install</h3>
+                        <p>Custom-designed conveyor system for almond processing plant with automated controls.</p>
+                    </div>
+                    <div class="service-card">
+                        <img src="https://raw.githubusercontent.com/Git-Rocky-Stack/Bentlines/refs/heads/main/images/abilities/Emergency%20Repair%20Service.png" alt="Emergency Repair Service" class="service-icon">
+                        <h3>Emergency Repair Service</h3>
+                        <p>24-hour turnaround on critical harvest equipment repairs during peak season.</p>
+                    </div>
+                    <!-- Row 2 -->
+                    <div class="service-card">
+                        <img src="https://raw.githubusercontent.com/Git-Rocky-Stack/Bentlines/refs/heads/main/images/abilities/OSHA%20Platform.png" alt="Industrial Platform" class="service-icon">
+                        <h3>Industrial Platform</h3>
+                        <p>Multi-level steel platform with OSHA-compliant railings for manufacturing facility.</p>
+                    </div>
+                    <div class="service-card">
+                        <img src="https://raw.githubusercontent.com/Git-Rocky-Stack/Bentlines/refs/heads/main/images/abilities/Irrigation%20Components.png" alt="Irrigation Components" class="service-icon">
+                        <h3>Irrigation Components</h3>
+                        <p>Custom fabricated irrigation system parts for 500-acre farming operation.</p>
+                    </div>
+                    <div class="service-card">
+                        <img src="https://raw.githubusercontent.com/Git-Rocky-Stack/Bentlines/refs/heads/main/images/abilities/Stainless%20Steel%20Tanks.png" alt="Stainless Steel Tanks" class="service-icon">
+                        <h3>Stainless Steel Tanks</h3>
+                        <p>Food-grade stainless steel storage tanks with sanitary welds for wine production.</p>
+                    </div>
+                    <!-- Row 3 -->
+                    <div class="service-card">
+                        <img src="https://raw.githubusercontent.com/Git-Rocky-Stack/Bentlines/refs/heads/main/images/abilities/Structural%20Reinforcement.png" alt="Structural Reinforcement" class="service-icon">
+                        <h3>Structural Reinforcement</h3>
+                        <p>Seismic retrofitting and structural reinforcement for aging warehouse facility.</p>
+                    </div>
+                    <div class="service-card">
+                        <img src="https://raw.githubusercontent.com/Git-Rocky-Stack/Bentlines/refs/heads/main/images/abilities/Custom%20Harvester%20Attachment.png" alt="Custom Harvester Attachment" class="service-icon">
+                        <h3>Custom Harvester Attachment</h3>
+                        <p>Specialized harvesting attachment designed for unique crop requirements.</p>
+                    </div>
+                    <div class="service-card">
+                        <img src="https://raw.githubusercontent.com/Git-Rocky-Stack/Bentlines/refs/heads/main/images/abilities/Commercial%20Building%20Frame.png" alt="Commercial Building Frame" class="service-icon">
+                        <h3>Commercial Building Frame</h3>
+                        <p>Complete steel framework for 30,000 sq ft commercial distribution center.</p>
+                    </div>
+                    <!-- Row 4 -->
+                    <div class="service-card">
+                        <img src="https://raw.githubusercontent.com/Git-Rocky-Stack/Bentlines/refs/heads/main/images/abilities/Processing%20Line%20Upgrade.png" alt="Processing Line Upgrade" class="service-icon">
+                        <h3>Processing Line Upgrade</h3>
+                        <p>Modernization of tomato processing line with custom stainless steel components.</p>
+                    </div>
+                    <div class="service-card">
+                        <img src="https://raw.githubusercontent.com/Git-Rocky-Stack/Bentlines/refs/heads/main/images/abilities/Silo%20Installation.png" alt="Silo Installation" class="service-icon">
+                        <h3>Silo Installation</h3>
+                        <p>Installation of grain storage silos with automated feed systems.</p>
+                    </div>
+                    <div class="service-card">
+                        <img src="https://raw.githubusercontent.com/Git-Rocky-Stack/Bentlines/refs/heads/main/images/abilities/Heavy%20Equipment%20Repair.png" alt="Heavy Equipment Repair" class="service-icon">
+                        <h3>Heavy Equipment Repair</h3>
+                        <p>Complete overhaul and reinforcement of industrial loader bucket assembly.</p>
+                    </div>
+                    <!-- Row 5 -->
+                    <div class="service-card">
+                        <img src="https://raw.githubusercontent.com/Git-Rocky-Stack/Bentlines/refs/heads/main/images/abilities/Mezzanine%20Installation.png" alt="Mezzanine Installation" class="service-icon">
+                        <h3>Mezzanine Installation</h3>
+                        <p>Custom mezzanine floor system doubling usable warehouse space.</p>
+                    </div>
+                    <div class="service-card">
+                        <img src="https://raw.githubusercontent.com/Git-Rocky-Stack/Bentlines/refs/heads/main/images/abilities/Pump%20Station%20Fabrication.png" alt="Pump Station Fabrication" class="service-icon">
+                        <h3>Pump Station Fabrication</h3>
+                        <p>Complete pump station assembly for agricultural irrigation system.</p>
+                    </div>
+                    <div class="service-card">
+                        <img src="https://raw.githubusercontent.com/Git-Rocky-Stack/Bentlines/refs/heads/main/images/abilities/Sorting%20Equipment.png" alt="Sorting Equipment" class="service-icon">
+                        <h3>Sorting Equipment</h3>
+                        <p>Custom sorting tables and conveyors for nut processing facility.</p>
+                    </div>
+                    <!-- Row 6 -->
+                    <div class="service-card">
+                        <img src="https://raw.githubusercontent.com/Git-Rocky-Stack/Bentlines/refs/heads/main/images/abilities/Shade%20Structure.png" alt="Shade Structure" class="service-icon">
+                        <h3>Shade Structure</h3>
+                        <p>Large-scale shade structures for equipment storage and livestock protection.</p>
+                    </div>
+                    <div class="service-card">
+                        <img src="https://raw.githubusercontent.com/Git-Rocky-Stack/Bentlines/refs/heads/main/images/abilities/Storage%20Tank%20Modifications.png" alt="Tank Modifications" class="service-icon">
+                        <h3>Tank Modifications</h3>
+                        <p>Modification and upgrade of existing storage tanks with new access ports.</p>
+                    </div>
+                    <div class="service-card">
+                        <img src="https://raw.githubusercontent.com/Git-Rocky-Stack/Bentlines/refs/heads/main/images/abilities/Safety%20Railing%20Systems.png" alt="Safety Railing Systems" class="service-icon">
+                        <h3>Safety Railing Systems</h3>
+                        <p>Installation of comprehensive safety railing throughout production facility.</p>
+                    </div>
+                    <!-- Row 7 -->
+                    <div class="service-card">
+                        <img src="https://raw.githubusercontent.com/Git-Rocky-Stack/Bentlines/refs/heads/main/images/abilities/Mounting%20Brackets.png" alt="Equipment Mounting" class="service-icon">
+                        <h3>Equipment Mounting</h3>
+                        <p>Custom mounting brackets for specialized agricultural equipment.</p>
+                    </div>
+                    <div class="service-card">
+                        <img src="https://raw.githubusercontent.com/Git-Rocky-Stack/Bentlines/refs/heads/main/images/abilities/Loading%20Dock%20Extension.png" alt="Loading Dock Extension" class="service-icon">
+                        <h3>Loading Dock Extension</h3>
+                        <p>Structural extension of loading dock with hydraulic levelers.</p>
+                    </div>
+                    <div class="service-card">
+                        <img src="https://raw.githubusercontent.com/Git-Rocky-Stack/Bentlines/refs/heads/main/images/abilities/Cooling%20System%20Framework.png" alt="Cooling System Framework" class="service-icon">
+                        <h3>Cooling System Framework</h3>
+                        <p>Support framework for industrial cooling system installation.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Gallery page CTA -->
+            <section class="cta-section">
+                <h2>Ready to start your project?</h2>
+                <p>Let's bring your vision to life with precision and excellence.</p>
+                <a href="mailto:info@bentlines.com" class="btn-primary">Get a Quote</a>
+            </section>
+        </div>
+    </div>
+
+    <!-- Footer - This is now properly at the VERY BOTTOM -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Services</h3>
+                <ul>
+                    <li>Custom Fabrication</li>
+                    <li>Onsite Installation</li>
+                    <li>Equipment Repair</li>
+                    <li>Industrial Welding</li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Company</h3>
+                <ul>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#gallery">Portfolio</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="#">Careers</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <ul>
+                    <li>Turlock, CA 95380</li>
+                    <li><a href="tel:+12095551234">(209) 555-1234</a></li>
+                    <li><a href="mailto:info@bentlines.com">info@bentlines.com</a></li>
+                    <li>License #1052633</li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Hours</h3>
+                <ul>
+                    <li>Monday - Friday: 7:00 AM - 5:00 PM</li>
+                    <li>Saturday: By appointment</li>
+                    <li>Sunday: Closed</li>
+                    <li>Emergency services available 24/7</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="footer-copyright">
+                © 2025 Bentlines. All rights reserved. | est. 2016
+                <br>
+                <span style="font-size: 0.75rem; margin-top: 0.5rem; display: inline-block;">
+                    Website developed by <a href="mailto:strategia.stx@gmail.com" style="color: var(--red); text-decoration: none;">Rocky at Strategia-X</a>
+                </span>
+            </div>
+            <div class="footer-socials">
+                <a href="#">LinkedIn</a>
+                <a href="#">Facebook</a>
+                <a href="#">Instagram</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Image Modal/Lightbox -->
+    <div id="imageModal" class="modal">
+        <span class="close">&times;</span>
+        <img class="modal-content" id="modalImg">
+        <div id="caption"></div>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        // Page navigation
+        function showPage(pageId) {
+            const pages = document.querySelectorAll('.page');
+            pages.forEach(page => {
+                page.classList.remove('active');
+            });
+            document.getElementById(pageId).classList.add('active');
+            window.scrollTo(0, 0);
+        }
+
+        // Scroll to section
+        function scrollToSection(sectionId) {
+            // If we're not on the home page, go there first
+            if (!document.getElementById('home').classList.contains('active')) {
+                showPage('home');
+            }
+            
+            setTimeout(() => {
+                const section = document.getElementById(sectionId);
+                if (section) {
+                    const navHeight = 48;
+                    const sectionTop = section.offsetTop - navHeight;
+                    window.scrollTo({
+                        top: sectionTop,
+                        behavior: 'smooth'
+                    });
+                }
+            }, 100);
+        }
+
+        // Gallery filter
+        function filterGallery(category) {
+            const items = document.querySelectorAll('.gallery-item');
+            const buttons = document.querySelectorAll('.filter-btn');
+            
+            // Update active button
+            buttons.forEach(btn => {
+                btn.classList.remove('active');
+                if (btn.textContent.toLowerCase().includes(category) || 
+                    (category === 'all' && btn.textContent === 'All Projects')) {
+                    btn.classList.add('active');
+                }
+            });
+            
+            // Filter items
+            items.forEach(item => {
+                if (category === 'all' || item.dataset.category.includes(category)) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        }
+
+        // Modal/Lightbox functionality
+        const modal = document.getElementById('imageModal');
+        const modalImg = document.getElementById('modalImg');
+        const captionText = document.getElementById('caption');
+        const closeBtn = document.getElementsByClassName('close')[0];
+
+        // Add click event to all gallery images
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get all images in the gallery page service cards
+            const galleryImages = document.querySelectorAll('#gallery .service-card img');
+            
+            galleryImages.forEach(img => {
+                img.onclick = function() {
+                    modal.style.display = 'block';
+                    modalImg.src = this.src;
+                    captionText.innerHTML = this.alt;
+                }
+            });
+
+            // Also add to home page service images if desired
+            const homeServiceImages = document.querySelectorAll('#home .services-grid .service-card img');
+            homeServiceImages.forEach(img => {
+                img.onclick = function() {
+                    modal.style.display = 'block';
+                    modalImg.src = this.src;
+                    captionText.innerHTML = this.alt;
+                }
+            });
+        });
+
+        // Close modal when clicking X
+        if (closeBtn) {
+            closeBtn.onclick = function() {
+                modal.style.display = 'none';
+            }
+        }
+
+        // Close modal when clicking outside the image
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = 'none';
+            }
+        }
+
+        // Close modal with Escape key
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape' && modal.style.display === 'block') {
+                modal.style.display = 'none';
+            }
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+            });
+        });
+    </script>
+</body>
+</html>
